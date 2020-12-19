@@ -4,13 +4,18 @@ from vending_machine import VendingMachine
 def order_a_coffee(vending_machine):
     vending_machine.insert_money(10)
     vending_machine.press_button()
-
     print('number of coffee the vending machine have : {}'.format(vending_machine.get_num()))
 
 
 def order_two_coffee(vending_machine):
     vending_machine.insert_money(10)
     vending_machine.press_button()
+    vending_machine.insert_money(10)
+    vending_machine.press_button()
+    print('number of coffee the vending machine have : {}'.format(vending_machine.get_num()))
+
+
+def order_coffe_but_not_correct_money(vending_machine):
     vending_machine.insert_money(10)
     vending_machine.press_button()
     print('number of coffee the vending machine have : {}'.format(vending_machine.get_num()))
@@ -29,10 +34,12 @@ def eject_money_fail(vending_machine):
 
 
 def main():
-    print('===order a coffee===')
+    print('===order a cup of coffee===')
     order_a_coffee(VendingMachine(3))
     print('===order two cup of coffee===')
     order_two_coffee(VendingMachine(3))
+    print('===order a cup of coffee, but money is not correct===')
+    order_coffe_but_not_correct_money(VendingMachine(3, 20))
     print('===eject money===')
     eject_money(VendingMachine(3))
     print('===eject money failed===')

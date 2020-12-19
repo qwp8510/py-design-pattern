@@ -87,6 +87,26 @@ class HasMoneyState(StateInterface):
         self.vending_maching.set_state(self.vending_maching.get_no_money_state())
 
     def press_button(self):
+        print('Nothing happened, money you insert is: {}, but actual price is: {}'.format(
+            self.vending_maching.get_money(), self.vending_maching.get_coffee_price()))
+
+    def dispense(self):
+        print('Nothing dispensed, money you insert is: {}, but actual price is: {}'.format(
+            self.vending_maching.get_money(), self.vending_maching.get_coffee_price()))
+
+
+class CorrectMoneyState(StateInterface):
+    def __init__(self, vending_maching):
+        self.vending_maching = vending_maching
+
+    def insert_money(self, money=0):
+        print('You can not insert money, because you already insert')
+
+    def eject_money(self):
+        print('money returned')
+        self.vending_maching.set_state(self.vending_maching.get_no_money_state())
+
+    def press_button(self):
         print('press button')
         self.vending_maching.set_state(self.vending_maching.get_sold_state())
 
