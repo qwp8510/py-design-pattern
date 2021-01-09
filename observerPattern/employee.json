@@ -1,0 +1,34 @@
+{
+    "Daniel": {
+        "level": "employee",
+        "position": "RD",
+        "seniority": "1",
+        "annual-review": "D",
+        "salary": "654321",
+        "description": ""
+    },
+    "Kevin": {
+        "level": "employee",
+        "position": "PM",
+        "seniority": "5",
+        "annual-review": "A",
+        "salary": "90000",
+        "description": "Excellent"
+    },
+    "Amy": {
+        "level": "intern",
+        "position": "RD intern",
+        "seniority": "1/12",
+        "annual-review": "B",
+        "salary": "40000",
+        "description": ""
+    },
+    "John": {
+        "level": "manager",
+        "position": "RD manager",
+        "seniority": "6",
+        "annual-review": "A",
+        "salary": "120000",
+        "description": "the best manager in rd department"
+    }
+}
