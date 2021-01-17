@@ -6,7 +6,8 @@ class HotCocoVendingMachine(ABC):
         self.add_powder()
         self.brew()
         self.pour_into_cup()
-        self.add_condiments()
+        if self.want_condiments():
+            self.add_condiments()
 
     @abstractmethod
     def add_powder(self):
@@ -21,3 +22,6 @@ class HotCocoVendingMachine(ABC):
     @abstractmethod
     def add_condiments(self):
         pass
+
+    def want_condiments(self):
+        return True

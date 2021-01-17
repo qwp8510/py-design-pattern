@@ -15,3 +15,10 @@ class Coffee(HotCocoVendingMachine):
 
     def add_condiments(self):
         print('add suger')
+
+    def want_condiments(self):
+        answer = input('do you want sugar?')
+        if answer == 'n' or answer == 'N':
+            return False
+        else:
+            return True
