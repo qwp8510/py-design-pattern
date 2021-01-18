@@ -2,7 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class MenuInterface(ABC):
-    @property
     @abstractmethod
-    def item(self):
+    def __iter__(self):
+        pass
+
+    @abstractmethod
+    def __next__(self):
         pass
