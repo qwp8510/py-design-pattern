@@ -5,15 +5,14 @@ class Waiter():
 
     def show_menu(self):
         print('--lunch--')
-        self._show(self.launch_menu.item)
+        self._show(self.launch_menu)
         print('--dinner--')
-        self._show(self.dinner_menu.item)
+        self._show(self.dinner_menu)
 
     def _show(self, iterator):
-        while(iterator.has_next()):
-            menu_item = iterator.next()
+        for item in iterator:
             print(
-                menu_item.get_item_name(),
-                menu_item.get_price(),
-                menu_item.get_description()
+                item.get_item_name(),
+                item.get_price(),
+                item.get_description()
             )
