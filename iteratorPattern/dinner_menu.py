@@ -1,8 +1,9 @@
 from menu_item import MenuItem
 from iterators import DinnerIterator
+from menu_interface import MenuInterface
 
 
-class DinnerMenu():
+class DinnerMenu(MenuInterface):
     def __init__(self):
         self._menu_items = {}
         self.add_item('salmon', '340', 'pan-fried salmon')

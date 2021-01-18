@@ -1,8 +1,9 @@
 from menu_item import MenuItem
 from iterators import LunchIterator
+from menu_interface import MenuInterface
 
 
-class LunchMenu():
+class LunchMenu(MenuInterface):
     def __init__(self):
         self._menu_items = []
         self.add_item('beef', '240', 'pan-fried steak')
