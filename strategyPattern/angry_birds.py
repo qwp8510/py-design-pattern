@@ -3,23 +3,38 @@ from fly_behaviors import StraightFly, FastFly
 from tweet_behavior import WiiTweet, MuteTweet
 
 
-class AngryBirds(ABC):
+class AngryBird(ABC):
     def __init__(self, fly_behavior, tweet_behavior):
-        self.fly_behavior = fly_behavior()
-        self.tweet_behavior = tweet_behavior()
+        self._fly_behavior = fly_behavior
+        self._tweet_behavior = tweet_behavior
 
-    def fly(self):
-        self.fly_behavior.fly()
+    @abstractmethod
+    def description(self):
+        pass
 
-    def tweet(self):
-        self.tweet_behavior.tweet()
+    def do_fly(self):
+        self._fly_behavior.fly()
+
+    def do_tweet(self):
+        self._tweet_behavior.tweet()
+
+    def set_fly_behavior(self, fly_behavior):
+        self._fly_behavior = fly_behavior
+
+    def set_tweet_behavirt(self, tweet_behavior):
+        self._tweet_behavior = tweet_behavior
 
 
-class Red(AngryBirds):
+class Red(AngryBird):
     def __init__(self):
-        super().__init__(fly_behavior=StraightFly, tweet_behavior=WiiTweet)
+        super().__init__(fly_behavior=StraightFly(), tweet_behavior=WiiTweet())
 
+    def description(self):
+        print('a bird name Red')
 
-class Chuck(AngryBirds):
+class Chuck(AngryBird):
     def __init__(self):
-        super().__init__(fly_behavior=FastFly, tweet_behavior=WiiTweet)
+        super().__init__(fly_behavior=FastFly(), tweet_behavior=MuteTweet())
+
+    def description(self):
+        print('a bird name Chuck')
