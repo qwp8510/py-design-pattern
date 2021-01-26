@@ -3,7 +3,6 @@ from state import SoldState, SoldOutState, NoMoneyState, HasMoneyState, CorrectM
 
 class VendingMachine():
     def __init__(self, coffee_num=10, coffee_price=10):
-        self.state = SoldOutState(self)
         self.money = 0
         self.sold_state = SoldState(self)
         self.sold_out_state = SoldOutState(self)
@@ -12,8 +11,9 @@ class VendingMachine():
         self.correct_money_state = CorrectMoneyState(self)
         self.coffee_num = coffee_num
         self.coffee_price = coffee_price
-        if self.coffee_num:
-            self.state = NoMoneyState(self)
+        self.state = self.sold_out_state
+        if self.coffee_num > 0:
+            self.state = self.no_money_state
 
     def insert_money(self, money):
         self.set_money(money)
