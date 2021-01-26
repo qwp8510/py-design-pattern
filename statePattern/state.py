@@ -63,7 +63,10 @@ class NoMoneyState(StateInterface):
 
     def insert_money(self, money=0):
         print('You insert money: {}'.format(money))
-        self.vending_maching.set_state(self.vending_maching.get_has_money_state())
+        if self.vending_maching.check_money_correct():
+            self.vending_maching.set_state(self.vending_maching.get_correct_money_state())
+        else:
+            self.vending_maching.set_state(self.vending_maching.get_has_money_state())
 
     def eject_money(self):
         print('You have not insert a money')
@@ -80,7 +83,9 @@ class HasMoneyState(StateInterface):
         self.vending_maching = vending_maching
 
     def insert_money(self, money=0):
-        print('You can not insert money, because you already insert')
+        print('You insert money {}'.format(money))
+        if self.vending_maching.check_money_correct():
+            self.vending_maching.set_state(self.vending_maching.get_correct_money_state())
 
     def eject_money(self):
         print('money returned')

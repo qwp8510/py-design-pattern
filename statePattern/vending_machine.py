@@ -18,8 +18,6 @@ class VendingMachine():
     def insert_money(self, money):
         self.set_money(money)
         self._state.insert_money(money)
-        if self.check_money_correct():
-            self.set_state(self.get_correct_money_state())
 
     def eject_money(self):
         self.set_money(0)
