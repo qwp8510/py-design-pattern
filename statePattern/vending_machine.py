@@ -3,66 +3,66 @@ from state import SoldState, SoldOutState, NoMoneyState, HasMoneyState, CorrectM
 
 class VendingMachine():
     def __init__(self, coffee_num=10, coffee_price=10):
-        self.money = 0
-        self.sold_state = SoldState(self)
-        self.sold_out_state = SoldOutState(self)
-        self.no_money_state = NoMoneyState(self)
-        self.has_money_state = HasMoneyState(self)
-        self.correct_money_state = CorrectMoneyState(self)
-        self.coffee_num = coffee_num
-        self.coffee_price = coffee_price
-        self.state = self.sold_out_state
-        if self.coffee_num > 0:
-            self.state = self.no_money_state
+        self._money = 0
+        self._sold_state = SoldState(self)
+        self._sold_out_state = SoldOutState(self)
+        self._no_money_state = NoMoneyState(self)
+        self._has_money_state = HasMoneyState(self)
+        self._correct_money_state = CorrectMoneyState(self)
+        self._coffee_num = coffee_num
+        self._coffee_price = coffee_price
+        self._state = self._sold_out_state
+        if self._coffee_num > 0:
+            self._state = self._no_money_state
 
     def insert_money(self, money):
         self.set_money(money)
-        self.state.insert_money(money)
+        self._state.insert_money(money)
         if self.check_money_correct():
             self.set_state(self.get_correct_money_state())
 
     def eject_money(self):
         self.set_money(0)
-        self.state.eject_money()
+        self._state.eject_money()
 
     def press_button(self):
-        self.state.press_button()
-        self.state.dispense()
+        self._state.press_button()
+        self._state.dispense()
 
     def set_state(self, state):
-        self.state = state
+        self._state = state
 
     def release(self):
         print('your coffee is coming')
-        if self.coffee_num > 0:
-            self.coffee_num -= 1
+        if self._coffee_num > 0:
+            self._coffee_num -= 1
 
     def get_sold_state(self):
-        return self.sold_state
+        return self._sold_state
 
     def get_sold_out_state(self):
-        return self.sold_out_state
+        return self._sold_out_state
 
     def get_no_money_state(self):
-        return self.no_money_state
+        return self._no_money_state
 
     def get_has_money_state(self):
-        return self.has_money_state
+        return self._has_money_state
 
     def get_correct_money_state(self):
-        return self.correct_money_state
+        return self._correct_money_state
 
     def get_num(self):
-        return self.coffee_num
+        return self._coffee_num
 
     def get_money(self):
-        return self.money
+        return self._money
 
     def set_money(self, money):
-        self.money = money
+        self._money = money
 
     def get_coffee_price(self):
-        return self.coffee_price
+        return self._coffee_price
 
     def check_money_correct(self):
-        return self.get_money() == self.coffee_price
+        return self.get_money() == self._coffee_price
