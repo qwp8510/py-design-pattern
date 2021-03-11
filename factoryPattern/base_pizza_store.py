@@ -4,7 +4,6 @@ from abc import ABC, abstractmethod
 class PizzaStore(ABC):
     def order_pizza(self, item):
         pizza = self.create_pizza(item)
-        print()
         if pizza.__class__.__name__ == 'UnknownPizza':
             return pizza
         pizza.prepare()

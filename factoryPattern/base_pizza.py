@@ -1,7 +1,4 @@
-from abc import ABC, abstractmethod
-
-
-class Pizza(ABC):
+class Pizza():
     def __init__(self, name, dough, sauce):
         self.name = name
         self.dough = dough
